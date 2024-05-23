@@ -1,0 +1,14 @@
+encrypt:
+  key-store:
+    location: file:/apiEncryptionKey.jks
+    alias: [별칭]
+    password: [비밀번호]
+
+
+spring:
+  cloud:
+    config:
+      server:
+        encrypt:
+          enabled: false
+          plain-text-encrypt: false

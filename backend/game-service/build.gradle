@@ -1,0 +1,94 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.1.5'
+	id 'io.spring.dependency-management' version '1.1.3'
+}
+
+group = 'io.ssafy'
+version = '1.0'
+
+java {
+	sourceCompatibility = '17'
+}
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+
+	// jwt
+	implementation 'io.jsonwebtoken:jjwt-api:0.11.5'
+	implementation 'io.jsonwebtoken:jjwt-impl:0.11.5'
+	implementation 'io.jsonwebtoken:jjwt-jackson:0.11.5'
+
+	// config
+	implementation 'org.springframework.cloud:spring-cloud-starter-config:4.0.3'
+	// bootstrap
+	implementation 'org.springframework.cloud:spring-cloud-starter-bootstrap:4.0.3'
+	// actuator
+	implementation 'org.springframework.boot:spring-boot-starter-actuator:3.1.2'
+	// eureka client
+	implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client:4.0.2'
+	// amqp
+	implementation 'org.springframework.cloud:spring-cloud-starter-bus-amqp:4.0.1'
+	// feign client
+	implementation 'org.springframework.cloud:spring-cloud-starter-openfeign:4.0.3'
+	// kafka
+	implementation 'org.springframework.kafka:spring-kafka:3.0.9'
+
+	// mysql
+	runtimeOnly 'com.mysql:mysql-connector-j'
+
+	// hibernate validator
+	implementation group: 'org.hibernate', name: 'hibernate-validator', version: '8.0.1.Final'
+
+	// jpa
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+
+	// querydsl
+	implementation 'com.querydsl:querydsl-jpa:5.0.0:jakarta'
+	annotationProcessor "com.querydsl:querydsl-apt:5.0.0:jakarta"
+	annotationProcessor "jakarta.annotation:jakarta.annotation-api"
+	annotationProcessor "jakarta.persistence:jakarta.persistence-api"
+
+	// swagger
+	implementation group: 'org.springdoc', name: 'springdoc-openapi-starter-webmvc-ui', version: '2.2.0'
+
+	// bootstrap
+	implementation 'org.springframework.cloud:spring-cloud-starter-bootstrap'
+
+	// security
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+
+	// oauth2
+	implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
+
+	// s3
+	implementation 'org.springframework.cloud:spring-cloud-starter-aws:2.2.6.RELEASE'
+	implementation 'com.amazonaws:aws-java-sdk-secretsmanager:1.11.339'
+	implementation 'com.amazonaws:aws-encryption-sdk-java:1.6.0'
+
+	// prometheus
+	implementation 'io.micrometer:micrometer-registry-prometheus'
+
+
+	compileOnly 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok:lombok'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+tasks.named('bootBuildImage') {
+	builder = 'paketobuildpacks/builder-jammy-base:latest'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}

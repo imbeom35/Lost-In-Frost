@@ -1,0 +1,46 @@
+{
+  "name": "lost-in-frost",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development webpack serve --mode development --open --hot",
+    "build": "cross-env NODE_ENV=production webpack --mode production",
+    "start": "cross-env NODE_ENV=development webpack --mode development"
+  },
+  "dependencies": {
+    "@babel/preset-react": "^7.22.15",
+    "@babel/preset-typescript": "^7.23.2",
+    "@tosspayments/sdk": "^1.3.1",
+    "axios": "^1.6.0",
+    "cross-env": "^7.0.3",
+    "dotenv": "^16.3.1",
+    "file-loader": "^6.2.0",
+    "file-saver": "^2.0.5",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-intersection-observer": "^9.5.3",
+    "react-router-dom": "^6.17.0",
+    "styled-components": "^6.1.0",
+    "svg-url-loader": "^8.0.0",
+    "ts-loader": "^9.5.0",
+    "url-loader": "^4.1.1",
+    "zustand": "^4.4.4"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.23.2",
+    "@babel/preset-env": "^7.23.2",
+    "@svgr/webpack": "^8.1.0",
+    "@types/file-saver": "^2",
+    "@types/react": "^18.2.33",
+    "@types/react-dom": "^18.2.14",
+    "babel-loader": "^9.1.3",
+    "css-loader": "^6.8.1",
+    "html-webpack-plugin": "^5.5.3",
+    "style-loader": "^3.3.3",
+    "typescript": "^5.2.2",
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^4.15.1"
+  }
+}

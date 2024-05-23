@@ -1,0 +1,46 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.1.5'
+	id 'io.spring.dependency-management' version '1.1.3'
+}
+
+group = 'io.ssafy'
+version = '1.0'
+
+java {
+	sourceCompatibility = '17'
+}
+
+repositories {
+	mavenCentral()
+}
+
+ext {
+	set('springCloudVersion', "2022.0.4")
+}
+
+dependencies {
+	// actuator
+	implementation 'org.springframework.boot:spring-boot-starter-actuator'
+	// AMQP
+	implementation 'org.springframework.boot:spring-boot-starter-amqp:3.1.2'
+	implementation 'org.springframework.cloud:spring-cloud-starter-bus-amqp'
+	// config server
+	implementation 'org.springframework.cloud:spring-cloud-config-server:4.0.3'
+	// bootstarp
+	implementation 'org.springframework.cloud:spring-cloud-starter-bootstrap:4.0.3'
+	// eureka
+	implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'org.springframework.amqp:spring-rabbit-test'
+}
+
+dependencyManagement {
+	imports {
+		mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+	}
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}

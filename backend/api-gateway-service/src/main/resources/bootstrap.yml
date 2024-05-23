@@ -1,0 +1,11 @@
+encrypt:
+  key-store:
+    location: file:/apiEncryptionKey.jks
+    alias: [별칭]
+    password: [비밀번호]
+
+spring:
+  cloud:
+    config:
+      uri: http://localhost:9999
+      name: eureka-service, rabbitmq, gateway, jwt, log, redis, swagger

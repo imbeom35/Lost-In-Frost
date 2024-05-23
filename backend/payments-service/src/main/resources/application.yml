@@ -1,0 +1,21 @@
+server:
+  port: 0
+spring:
+  application:
+    name: payments-service
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, bus-refresh, prometheus, metrics
+
+springdoc:
+  api-docs:
+    version: openapi_3_1
+    enabled: true
+#    path: /payments-service/v3/api-docs
+  enable-spring-security: true
+  default-consumes-media-type: application/json
+  default-produces-media-type: application/json

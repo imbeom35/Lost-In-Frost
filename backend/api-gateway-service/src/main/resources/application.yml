@@ -1,0 +1,17 @@
+server:
+  port: 9000
+
+spring:
+  application:
+    name: api-gateway-service
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, exchanges, bus-refresh, prometheus, metrics
+
+springdoc:
+  swagger-ui:
+    use-root-path: true
